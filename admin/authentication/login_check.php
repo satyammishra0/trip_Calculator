@@ -23,6 +23,8 @@ if (isset($_POST['submit_login_btn'])) {
 
                 //    untill you are getting the result the loop runs
                 if ($Email == $result['email'] && $Password == $result['password']) {
+                    session_start();
+                    $_SESSION['username'] = $result['username'];
                     header('location:../../index.php');
                 }
                 // Giving back the user about his error through URL
