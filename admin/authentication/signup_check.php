@@ -14,7 +14,7 @@ if (isset($_POST['main_signup_btn'])) {
     if (strlen($userName) != 0 || strlen($userEmail) != 0 || strlen($userPassword) != 0) {
 
         // Checking the email
-        if (filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
 
             // Checking the lenght of userPassword
             if (strlen($userPassword) >= 8) {
@@ -27,7 +27,7 @@ if (isset($_POST['main_signup_btn'])) {
                 while ($result = mysqli_fetch_array($runQuery2)) {
                     if ($result['email'] == $userEmail) {
                         $signup_MainError = 'User already exists please change your mail';
-                        header('location:../index.php?signup_MainError' . $signup_MainError);
+                        header('location:../index.php?signup_MainError=' . $signup_MainError);
                         exit();
                     }
                 }
@@ -36,7 +36,7 @@ if (isset($_POST['main_signup_btn'])) {
                 $query = "INSERT INTO `user_details` (`username`, `email`, `password`) VALUES ( '$userName', '$userEmail', '$userPassword');";
                 $response = mysqli_query($conn, $query);
                 $signup_Success = 'You have signed up successfully';
-                header('location:../index.php?signup_Success' . $signup_Success);
+                header('location:../index.php?signup_Success=' . $signup_Success);
             }
         }
 
@@ -44,14 +44,14 @@ if (isset($_POST['main_signup_btn'])) {
 
         else {
             $signup_EmailError = 'Entered wrong email';
-            header('location:../index.php?signup_EmailError' . $signup_EmailError);
+            header('location:../index.php?signup_EmailError=' . $signup_EmailError);
         }
     }
 
     // Returnig if there is any error
     else {
         $signup_DetailsError = 'Please fill the fields';
-        header('location:../index.php?signup_DetailsError' . $signup_DetailsError);
+        header('location:../index.php?signup_DetailsError=' . $signup_DetailsError);
     }
 }
 
@@ -59,5 +59,5 @@ if (isset($_POST['main_signup_btn'])) {
 else {
 
     $signup_MainError = 'Please make sure you filled data correctly';
-    header('location:../index.php?signup_MainError' . $signup_MainError);
+    header('location:../index.php?signup_MainError=' . $signup_MainError);
 }

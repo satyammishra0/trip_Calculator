@@ -65,13 +65,13 @@ function loginvalidateForm() {
   }
 }
 
-// It's here to clear the data of URL after the '?' if there
-setTimeout(() => {
-  window.history.pushState(
-    "",
-    "Page Title",
-    window.location.href.split("?")[0]
-  );
+// // It's here to clear the data of URL after the '?' if there
+// setTimeout(() => {
+//   window.history.pushState(
+//     "",
+//     "Page Title",
+//     window.location.href.split("?")[0]
+//   );
 
-  // window.location.replace(window.location.href.split("?")[0])
-}, 3000);
+//   // window.location.replace(window.location.href.split("?")[0])
+// }, 3000);

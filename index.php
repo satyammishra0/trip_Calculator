@@ -2,6 +2,11 @@
 // Starting the session here
 session_start();
 
+// Checking if the user has logged in or not
+if (isset($_SESSION['username'])) {
+} else {
+    header('location:./admin');
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,26 +35,25 @@ session_start();
 
 <body>
     <!-- ---------------------------------- -->
-    <!-- Header of the page -->
-    <!-- ---------------------------------- -->
-
-    <!-- ---------------------------------- -->
     <!-- Designing the modal of the page-->
     <!-- ---------------------------------- -->
 
     <section class="complete-body grid grid-center">
         <div class="box">
             <div class="icon grid grid-center">
-
-                <ion-icon name="flame"></ion-icon>
+                <!-- <ion-icon name="contacts"></ion-icon> -->
+                <ion-icon name="people"></ion-icon>
+                <!-- <ion-icon name="flame"></ion-icon> -->
                 <h2>Hello,<?php
                             // Getting the username
-                            echo $_SESSION['username'];
+                            if (isset($_SESSION['username'])) {
+                                echo $_SESSION['username'];
+                            }
                             ?>
                 </h2>
                 <h2>Thank you for sing in with us</h2>
                 <div class="btns flex-center">
-                    <button><a href="">Create Group</a></button>
+                    <button><a href="./groups/create_group.php">Create Group</a></button>
                     <button><a href="">Join Group</a></button>
                 </div>
             </div>

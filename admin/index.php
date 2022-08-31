@@ -70,10 +70,13 @@
                 }
                 // Cehcking the errors if done
 
-                if (isset($_GET['Email_Pattern_Error']) || isset($_GET['CredentialsError']) || isset($_GET['AccessError']) || isset($_GET['signup_Success'])) {
-                    errors_from_validation($_GET['AccessError']);
+                if (isset($_GET['Email_Pattern_Error'])) {
                     errors_from_validation($_GET['Email_Pattern_Error']);
-                    errors_from_validation($_GET['signup_Success']);
+                }
+                if (isset($_GET['AccessError'])) {
+                    errors_from_validation($_GET['AccessError']);
+                }
+                if (isset($_GET['CredentialsError'])) {
                     errors_from_validation($_GET['CredentialsError']);
                 }
                 if (isset($_GET['signup_Success'])) {
@@ -81,7 +84,6 @@
                     echo $_GET['signup_Success'];
                     echo "</div>";
                 }
-
                 ?>
             </form>
 

@@ -1,0 +1,52 @@
+.wrapper-container {
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  background-color: vaR(--primary-color);
+  color: vaR(--white);
+  border-radius: 6px;
+  width: 35vw;
+  padding: 5%;
+}
+
+.wrapper > h2 {
+  text-align: center;
+  font-size: 30px;
+}
+.wrapper > p {
+  margin: 4% 0;
+  text-align: center;
+}
+.container {
+  margin: 6% 0;
+}
+.title {
+  font-size: 14px;
+  color: #b5b7ba;
+}
+.inputContainer > input {
+  outline: none;
+  border: none;
+  padding: 10px;
+  height: 40px;
+  background-color: #e3e5e8;
+  width: 100%;
+  font-size: 17px;
+  border-radius: 4px;
+  margin-top: 3%;
+}
+
+.splitButton {
+  border: none;
+  color: vaR(--white);
+  font-size: 18px;
+  font-weight: 500;
+  padding: 4px 9px;
+  background-color: #63c;
+  border-radius: 50%;
+}
