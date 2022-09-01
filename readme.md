@@ -10,10 +10,11 @@
 # Steps you should follow :
 <li> Login / signin</li>
 <li> Create / join group </li>
-<li> providing group detaials such as name, category, persons included</li>
+<li> Providing group detaials such as name, category, persons included</li>
 <li> Panel for the user showcasing groups and a calculator used in that for splitting the bill</li>
 <li> Showcasing the history of bills per each member</li>
-<li> and finally showing the total bill</li>
+<li> And finally showing the total bill</li>
+<li> </li>
 
 
 <sup>Thank you for visiting you may check more of my work at :: https://satyammishra0.github.io/Portfolio/</sup>
