@@ -1,11 +1,46 @@
-.wrapper-container {
-  height: 80vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.main-container {
+  grid-template-columns: 15% 1fr;
+}
+.groups-desc {
+  border-top: 1px solid #fbfaff;
+  height: 100%;
+  padding: 5%;
+  background-color: var(--primary-color);
+  color: #fbfaffbf;
+}
+.main-headings {
+  padding: 10% 0;
+  border-bottom: 1px solid #fbfaff;
+}
+.main-headings > ul > li {
+  padding: 4%;
+}
+.main-headings > ul > li > a {
+  color: #fbfaffbf;
+  margin: 5% 0;
+  font-size: 18px;
+}
+.main-headings > ul > li > a > ion-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+.enrolled-groups {
+  padding: 7% 0;
+}
+.enrolled-groups > ul > li {
+  font-size: 15px;
+  margin: 4% 0;
+  padding: 0 4%;
 }
 
+.enrolled-groups > ul > li > ion-icon {
+  margin-right: 10px;
+  font-size: 15px;
+}
+.wrapper-container {
+  padding: 4% 0;
+  padding-bottom: 0;
+}
 .wrapper {
   background-color: vaR(--primary-color);
   color: vaR(--white);

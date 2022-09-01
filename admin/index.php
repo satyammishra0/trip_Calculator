@@ -136,6 +136,17 @@
     <script src="./assets/js/login_check.js"></script>
     <script src="./assets/js/signup_check.js"></script>
 
+    <script>
+        setTimeout(() => {
+            window.history.pushState(
+                "",
+                "Page Title",
+                window.location.href.split("?")[0]
+            );
+
+            // window.location.replace(window.location.href.split("?")[0])
+        }, 3000);
+    </script>
     <!-- ---------------------------------- -->
     <!-- including head for important metas -->
     <!-- ---------------------------------- -->
