@@ -14,7 +14,7 @@
 <li> Panel for the user showcasing groups and a calculator used in that for splitting the bill</li>
 <li> Showcasing the history of bills per each member</li>
 <li> And finally showing the total bill</li>
-<li> </li>
+</br>
 
 
 <sup>Thank you for visiting you may check more of my work at :: https://satyammishra0.github.io/Portfolio/</sup>
