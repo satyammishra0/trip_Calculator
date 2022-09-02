@@ -32,3 +32,15 @@
   --border-radius: 15px;
   --box-shadow: 0px 8px 28px -6px #1b50680f, 0px 18px 88px -4px #1b506814;
 }
+
+dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 6px;
+}
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.728);
+}

@@ -111,7 +111,7 @@ include('../includes/config.php');
                 <small id="name-error"></small>
             </div>
             <div class="final-add-btn">
-                <button><a href="javascript:create_group()">Create Group</a></button>
+                <button class="basic-button"><a href="javascript:create_group()">Create Group</a></button>
             </div>
         </section>
 
@@ -142,11 +142,10 @@ include('../includes/config.php');
                             </div>
                         </div>
                     <?php } ?>
-                    <button onclick="make_group()">Create Group</button>
+                    <button class="basic-button" onclick="make_group()">Create Group</button>
 
                     <!-- Error if blank -->
                     <small id="group-member-error"></small>
-
         </section>
     </section>
 
