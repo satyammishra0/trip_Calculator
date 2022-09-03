@@ -1,12 +1,27 @@
 <?php
 // Starting the session here
+include_once('./includes/config.php');
 session_start();
+$action = "";
 
 // Checking if the user has logged in or not
 if (isset($_SESSION['username'])) {
+
+    $user_Id = $_SESSION['id'];
+    $fetch_group_query = "SELECT groups.* FROM `group_members` LEFT JOIN `groups` ON groups.id = group_members.group_id WHERE group_members.user_id = '$user_Id' AND groups.status = 1;";
+    $fetch_group_response = mysqli_query($conn, $fetch_group_query);
+    if (mysqli_num_rows($fetch_group_response) > 0) {
+
+        if (!isset($_GET['action']) || $_GET['action'] != 'create_group' && $_GET['action'] != 'join_group') {
+            header("location:./calc");
+        } else {
+            $action  = $_GET['action'];
+        }
+    }
 } else {
     header('location:./admin');
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +80,13 @@ if (isset($_SESSION['username'])) {
     <!-- including foot for important links -->
     <!-- ---------------------------------- -->
     <?php include('./includes/foot.php'); ?>
+
+    <script>
+        let action = `<?= $action ?>`;
+        if(action == 'create_group'){
+            
+        }
+    </script>
 
 </body>
 

@@ -68,7 +68,7 @@ if (!empty($group_user_name)) {
                             <ion-icon name="home-sharp"></ion-icon>Home
                         </a>
                     </li>
-                    <li><a href="../groups/create_group.php">
+                    <li><a href="<?= CREATE_GROUP ?>">
                             <ion-icon name="add-circle-sharp"></ion-icon>Add Group
                         </a>
                     </li>
@@ -158,7 +158,7 @@ if (!empty($group_user_name)) {
 
     <input type="hidden" id="group_id" value="<?= $GROUP['id'] ?>">
     <input type="hidden" id="group_name" value="<?= $GROUP['group_name'] ?>">
-    <input type="hidden" id="group_member_list" value="<?= json_encode($GROUP_MEMBERS) ?>">
+    <input type="hidden" id="group_member_list" value='<?= json_encode($GROUP_MEMBERS,)  ?>'>
     <input type="hidden" id="group_admin_id" value="<?= $GROUP['created_by']; ?>">
     <input type="hidden" id="user_id" value="<?= $user_Id ?>">
 
@@ -166,31 +166,57 @@ if (!empty($group_user_name)) {
     <!-- Dialogs -->
 
     <dialog id="bill_calculator">
+
+        <ion-icon onclick="close_dialog()" name="close-sharp" class="dialog-close-btn"></ion-icon>
         <div class="wrapper">
             <h2>Split Bill</h2>
             <p>Feels best when it is shared 😂😂</p>
             <div class="container" id="topContainer">
                 <div class="title">Spendings</div>
                 <div class="inputContainer">
-                    <input onkeyup="calculateBill()" type="text" id="billTotalInput" placeholder="0.00" />
+                    <input onkeyup="splitAmountInput(this)" type="number" id="billInput" placeholder="0.00" />
                 </div>
             </div>
 
-            <div class="container flex-center" id="bottom">
-                <div class="title">Members
-                </div>
-                <div class="totalContainer">
-                    <button onclick="select_all_member()">Select all</button>
-                    <div>
-                        <ul>
+            <div class="" style="margin-top: 4%;" id="bottom">
+                <div class="title">
+                    <div class="select-member flex flex-center">
+                        <p class="text"> Members</p>
+                        <button class="select-btn" onclick="split_with_all_member(this)" id="select_all_btn">Select all</button>
+                    </div>
+                    <hr>
+                    <div class="member-list-container">
+                        <div id="member_list_ui">
                             <?php
                             foreach ($GROUP_MEMBERS as $member) :
+                                if ($member['userid'] == $user_Id) continue;
                             ?>
-                                <li class="flex">
-                                    <?php echo  "<ion-icon id='tick_mark_icon' name='checkmark-done-circle-sharp'></ion-icon>" . $member['username'] ?>
-                                </li>
+                                <div class="member-list-item flex-center">
+                                    <div class="flex flex-center">
+                                        <p class="user-logo">
+                                            <?= substr($member['username'], 0, 1) ?>
+                                        </p>
+                                        <p class="text">
+                                            <?= $member['username'] ?>
+                                        </p>
+                                    </div>
+
+                                    <button class="select-btn split-bill-member-btn"  onclick="split_with_member('<?= $member['userid'] ?>',this)">
+                                        Add
+                                    </button>
+                                </div>
                             <?php endforeach; ?>
-                        </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class=" split-bill-div flex flex-center">
+
+                        <div>
+                            <p>Per Person:</p>
+                            <p class="sub-heading" id="per_person">₹ 0</p>
+                        </div>
+                        <button class=" basic-button">Split</button>
+
                     </div>
                 </div>
 
@@ -199,7 +225,7 @@ if (!empty($group_user_name)) {
         </div>
     </dialog>
 
-    <script type="text/javascript" src="./assets/js/script.js"></script>
+    <!-- <script type="text/javascript" src="./assets/js/script.js"></script> -->
     <script type="text/javascript" src="./assets/js/bill_add.js"></script>
     <?php include('../includes/foot.php'); ?>
 </body>

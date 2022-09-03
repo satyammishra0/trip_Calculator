@@ -75,8 +75,9 @@ const make_group = () => {
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         if (res.result) {
-          // window.location.href = "../calc/";
+          window.location.href = "../calc/?group=" + res.data.group_id;
         } else {
           handleError(res.code, res.message);
         }

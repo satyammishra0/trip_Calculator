@@ -52,6 +52,7 @@
   border-radius: 6px;
   width: 35vw;
   padding: 5%;
+  padding-bottom: 3%;
 }
 
 .wrapper > h2 {
@@ -123,15 +124,56 @@
   background-color: #63c;
   border-radius: 50%;
 }
-.totalContainer > button {
+
+.select-member {
+  padding-bottom: 3%;
+}
+.select-btn {
   border: none;
   color: vaR(--white);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  padding: 4px 9px;
+  padding: 2px 5px;
   background-color: #63c;
   border-radius: 4px;
 }
-#tick_mark_icon {
+
+.member-list-container {
+  max-height: 250px;
+}
+.member-list-item {
+  margin: 10px 0;
+}
+.user-logo {
+  border: none;
+  color: vaR(--white);
+  font-size: 16px;
+  font-weight: 500;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #63c;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.tick_mark_icon {
   display: none;
+}
+
+.split-bill-div {
+  margin-top: 4%;
+}
+
+/* Dialog close btn */
+.dialog-close-btn:parent {
+  position: relative;
+}
+.dialog-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 30px;
 }

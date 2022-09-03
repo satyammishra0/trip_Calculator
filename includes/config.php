@@ -33,3 +33,5 @@ if ($conn) {
 }
 
 
+if (!defined("CREATE_GROUP"))
+    define("CREATE_GROUP", "http://localhost/GROWUPNEXT/Trip_Calculator/groups/create_group.php");

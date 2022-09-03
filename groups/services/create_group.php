@@ -83,7 +83,7 @@ $member_query = $member_query_1 . $member_query_2;
 
 $member_query_result = mysqli_query($conn, $member_query);
 if ($member_query_result) {
-    throw_response(200, 'Group created successfully');
+    throw_response(200, 'Group created successfully', ["group_id" => $group_name]);
 } else {
     throw_response(4005, 'Somthing went wrong');
     $group_delete_query = "DELETE FROM `groups` WHERE `id`='$GROUP_ID'";
