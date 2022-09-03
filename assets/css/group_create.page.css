@@ -1,0 +1,219 @@
+/* NEW CSS */
+
+.select-type {
+  background-color: vaR(--primary-color);
+  color: vaR(--white);
+  border-radius: 6px;
+  width: 35vw;
+  padding: 5%;
+}
+
+.select-type > h2 {
+  text-align: center;
+  font-size: 30px;
+}
+.select-type > p {
+  margin: 4% 0;
+  text-align: center;
+}
+
+.trip-options-box {
+  padding: 2% 5%;
+  margin-bottom: 3%;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #333;
+}
+.trip-name > a {
+  font-size: 18px;
+  color: var(--black);
+  margin-left: 15px;
+}
+.trip-name > ion-icon {
+  color: #63c;
+  font-size: px;
+}
+.trip-name-add-btn > button {
+  padding: 0 12px;
+  text-align: center;
+  padding-top: 0;
+  line-height: 1.6;
+  border-radius: 50%;
+  background-color: #63c;
+  border: none;
+  color: var(--white);
+  font-size: 26px;
+  text-transform: uppercase;
+}
+.select-type {
+  display: block;
+}
+
+/* Second group for customizing group */
+.customize-group {
+  display: none;
+}
+.customize-group {
+  background-color: vaR(--primary-color);
+  color: vaR(--white);
+  border-radius: 6px;
+  width: 35vw;
+  padding: 5%;
+}
+.customize-group > h2 {
+  text-align: center;
+  font-size: 30px;
+}
+.customize-group > p {
+  margin: 4% 0;
+  text-align: center;
+}
+.group-name > label {
+  font-size: 14px;
+  color: #b5b7ba;
+}
+.group-name > input {
+  outline: none;
+  border: none;
+  padding: 10px;
+  height: 40px;
+  background-color: #e3e5e8;
+  width: 100%;
+  font-size: 17px;
+  border-radius: 4px;
+  margin-top: 3%;
+}
+
+.group-name > small {
+  color: rgb(255, 116, 116);
+  font-size: 14px;
+}
+.final-add-btn {
+  width: 100%;
+  margin-top: 5%;
+  padding-left: 33%;
+}
+
+.final-add-btn > button > a {
+  line-height: 2;
+  font-size: 16px;
+  color: var(--white);
+}
+.group-icon {
+  padding-left: 43%;
+}
+.group-icon-name {
+  background-color: #fff;
+  /* padding: 0 35px; */
+  line-height: 1.5;
+  font-size: 47px;
+  border-radius: 50%;
+  width: 75px;
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #63c;
+}
+
+/* Third phase for selecting the user */
+
+.member-suggestion-container {
+  padding: 5% 30%;
+}
+.members-suggestion {
+  border-radius: var(--border-radius);
+  padding: 5% 15%;
+  background-color: var(--primary-color);
+  backdrop-filter: blur(10px);
+}
+
+.member-box {
+  background-color: rgb(255, 255, 255);
+  padding: 2% 5%;
+  color: var(--white);
+  border-radius: var(--border-radius);
+  margin-bottom: 2%;
+}
+.usersymbol {
+  padding: 0 15px;
+  text-align: center;
+  padding-top: 0;
+  line-height: 1.6;
+  border-radius: 50%;
+  background-color: #63c;
+  color: var(--white);
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.customize-group-member > h2 {
+  margin-bottom: 7%;
+  text-transform: capitalize;
+}
+.customize-group-member > button {
+  line-height: 1.8;
+  padding: 2px 13px;
+  font-size: 14px;
+  color: #63c;
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  border: 1.5px solid #63c;
+}
+.username {
+  font-size: 18px;
+  color: var(--black);
+  margin-left: 15px;
+  font-weight: 400;
+}
+.add-btn > button {
+  border-radius: var(--border-radius);
+  /* background-color: #63c; */
+  background-color: #fff;
+  border: 1.5px solid #63c;
+}
+.add-btn > button > a {
+  line-height: 1.8;
+  padding: 2px 13px;
+  font-size: 14px;
+  color: #63c;
+}
+.user > ion-icon {
+  color: #63c;
+  font-size: 35px;
+}
+.group-member-error {
+  color: #333;
+  font-size: 14px;
+  text-align-last: left !important;
+}
+
+@media screen and (max-width: 768px) {
+  .select-type {
+    width: 85vw;
+    padding: 5%;
+  }
+  .member-suggestion-container {
+    padding: 43% 8%;
+  }
+  .customize-group {
+    width: 85vw;
+    padding: 5%;
+  }
+  .group-icon {
+    padding-left: 34%;
+  }
+  .final-add-btn {
+    padding-left: 23%;
+  }
+  .add-btn > button > a {
+    padding: 6px;
+  }
+  .member-box {
+    margin-bottom: 8%;
+  }
+  .username {
+    margin-left: 0;
+  }
+  .member-box {
+    padding: 4% 5%;
+  }
+}

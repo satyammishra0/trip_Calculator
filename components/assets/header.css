@@ -1,0 +1,37 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  background-color: var(--primary-color);
+  padding: 0 3vw;
+}
+.header-brand-name {
+  font-size: 30px;
+  font-weight: 600;
+}
+.user-profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 60px;
+  background-color: #6633cc;
+  display: grid;
+  place-items: center;
+}
+
+.user-profile-icon p {
+  color: var(--white);
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.header-menu-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.header-menu-list > li > a {
+  color: var(--white);
+}
