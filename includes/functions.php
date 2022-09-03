@@ -17,3 +17,21 @@ function throw_response($result, $message, $data = null)
     echo json_encode($response);
     exit();
 }
+
+function authorized_user_only($url = null)
+{
+
+    // Starting the session here
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    // Checking if the user has logged in or not
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+    } else {
+        if ($url != null) {
+            header('location:' . $url);
+        }
+    }
+}

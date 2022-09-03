@@ -172,9 +172,14 @@ if (!empty($group_user_name)) {
             <h2>Split Bill</h2>
             <p>Feels best when it is shared 😂😂</p>
             <div class="container" id="topContainer">
-                <div class="title">Spendings</div>
                 <div class="inputContainer">
-                    <input onkeyup="splitAmountInput(this)" type="number" id="billInput" placeholder="0.00" />
+                    <div class="title">Spendings</div>
+                    <input onkeyup="splitAmountInput(this)" type="number" id="billInput" placeholder="₹ 0.00" />
+                </div>
+                <br>
+                <div class="inputContainer">
+                    <p class="title">Remark</p>
+                    <input type="text" id="bill-remark" />
                 </div>
             </div>
 
@@ -201,7 +206,7 @@ if (!empty($group_user_name)) {
                                         </p>
                                     </div>
 
-                                    <button class="select-btn split-bill-member-btn"  onclick="split_with_member('<?= $member['userid'] ?>',this)">
+                                    <button class="select-btn split-bill-member-btn" onclick="split_with_member('<?= $member['userid'] ?>',this)">
                                         Add
                                     </button>
                                 </div>
@@ -215,7 +220,7 @@ if (!empty($group_user_name)) {
                             <p>Per Person:</p>
                             <p class="sub-heading" id="per_person">₹ 0</p>
                         </div>
-                        <button class=" basic-button">Split</button>
+                        <a class="basic-button" href="javascript:split_bill()">Split</a>
 
                     </div>
                 </div>

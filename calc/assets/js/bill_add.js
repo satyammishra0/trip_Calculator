@@ -1,5 +1,9 @@
 let bill_calculator = document.getElementById("bill_calculator");
 let bill_select_all_btn = document.getElementById("select_all_btn");
+
+const SPLITMEMBERS = [];
+let SPLIT_AMOUNT = 0;
+
 const add_new_bill = (id) => {
   bill_calculator.showModal();
 };
@@ -7,32 +11,16 @@ const add_new_bill = (id) => {
 const close_dialog = () => {
   bill_calculator.close();
 };
-// Selecting all the members of split bill popup
 
-// function select_all_member() {
-//   // document.getElementById("tick_mark_icon").style.display = "block";
-
-//   let list = document.querySelector("#member_list_ui");
-//   for (let i = 0; i < list.children.length; i++) {
-//     if ((list.children[i].children[0].style.display = "none")) {
-//       list.children[i].children[0].style.display = "block";
-//     } else {
-//       list.children[i].children[0].style.display = "none";
-//     }
-//   }
-// }
-
-// Now the calculation function
-const SPLITMEMBERS = [];
-
+// add a default user in bill
 let user_id = document.getElementById("user_id");
 if (user_id == null) {
   alert("Something went wrong");
 }
 SPLITMEMBERS.push(user_id.value);
 
-// let billInput = document.getElementById("billInput").value;
-let SPLIT_AMOUNT = 0;
+// ===========================================================
+
 const splitAmountInput = (ele) => {
   SPLIT_AMOUNT = ele.value;
   calc_per_person();
@@ -109,6 +97,46 @@ const split_with_all_member = () => {
 };
 
 // Split bill
-const save_bill = () => {
-  console.log();
+const split_bill = () => {
+  let remark = document.getElementById("bill-remark");
+  remark = remark != null ? remark.value : "";
+
+  if (SPLIT_AMOUNT != 0 && SPLITMEMBERS.length > 0) {
+    let data = new FormData();
+    data.append("amount", SPLIT_AMOUNT);
+    data.append("members", JSON.stringify(SPLITMEMBERS));
+    console.log(JSON.stringify(SPLITMEMBERS));
+    data.append("remark", remark);
+
+    fetch("./services/add-bill.php", {
+      method: "POST",
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if (res.result) {
+          alert("Bill created successfully");
+          window.location.reload();
+        } else {
+          if (res.code == 4001) {
+            alert("Your spending should be more than 0");
+            return;
+          }
+          if (res.code == 4002) {
+            alert("Select atleast a member to split a bill");
+            return;
+          }
+        }
+      });
+  } else {
+    if (SPLIT_AMOUNT == 0) {
+      alert("Your spending should be more than 0");
+      return;
+    }
+    if (SPLITMEMBERS.length < 1) {
+      alert("Select atleast a member to split a bill");
+      return;
+    }
+  }
 };
