@@ -57,7 +57,7 @@ if (isset($_GET['action'])) {
     $action = $_GET['action'];
     if ($action == "logout") {
 
-        unset($_SESSION['userid']);
+        unset($_SESSION['id']);
         unset($_SESSION['username']);
         unset($_SESSION['useremail']);
 
