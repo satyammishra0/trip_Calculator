@@ -16,6 +16,7 @@ RewriteRule ^login([/]?)$ pages/auth/login.php [QSA,NC,L]
 RewriteRule ^register([/]?)$ pages/auth/register.php [QSA,NC,L]
 RewriteRule ^forget-password([/]?)$ pages/auth/forget-password.php [QSA,NC,L]
 RewriteRule ^welcome([/]?)$ pages/welcome.php [QSA,NC,L]
+RewriteRule ^profile([/]?)$ pages/profile/profile.php [QSA,NC,L]
 RewriteRule ^group/create([/]?)$ pages/group/create.php [QSA,NC,L]
 RewriteRule ^group/(.*?)([/]?)$ pages/home.php?group=$1 [QSA,NC,L]
 

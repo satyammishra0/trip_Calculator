@@ -88,3 +88,11 @@
 .h100 {
   height: 100%;
 }
+
+.bold {
+  font-weight: bold;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

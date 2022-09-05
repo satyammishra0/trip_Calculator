@@ -211,7 +211,7 @@
   background-color: vaR(--primary-color);
   color: vaR(--white);
   border-radius: 6px;
-  width: 35vw;
+  /* width: 35vw; */
   padding: 5%;
   padding-bottom: 3%;
 }

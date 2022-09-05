@@ -1,0 +1,40 @@
+/* Profile CSS here */
+
+.profile-icon > p {
+  height: max-content;
+  width: 55px;
+  padding: 10 25px;
+  border-radius: 50%;
+  background-color: #63c;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 500;
+}
+.first-container > table {
+  width: 100%;
+  margin: 5% 0;
+  padding: 2% 0;
+  border-radius: 4px;
+  /* background-color: #fff; */
+  background-color: #2d2649;
+}
+.first-container > table > tbody > tr {
+  border-bottom: 1px solid #000;
+}
+.first-container > table > tbody > tr > td {
+  color: rgb(48, 48, 48);
+  /* border: 1px solid #ccc; */
+  padding: 1% 4%;
+  color: #fff;
+}
+
+.submit-btn {
+  margin: 4% 0;
+}
+.submit-btn > button {
+  background-color: #63c;
+  padding: 0 6%;
+  border-radius: 6px;
+  line-height: 2.5;
+  color: var(--white);
+}
