@@ -8,7 +8,9 @@ $group_user_name = isset($_GET['group']) && $_GET['group'] != null ? $_GET['grou
 if (!empty($group_user_name)) {
     $group_user_name = mysqli_escape_string($conn, $group_user_name);
 
-    $fetch_group_query = "SELECT groups.* , user_details.username as admin FROM `groups` LEFT JOIN user_details ON groups.created_by = user_details.id WHERE `group_name` ='$group_user_name' AND `status` = 1;";
+    $fetch_group_query = "SELECT groups.* , user_details.username as admin FROM `groups` LEFT JOIN user_details ON groups.created_by = user_details.id WHERE `group_name` ='$group_user_name' AND `groups`.`status` = 1;";
+
+
     $fetch_group_response = mysqli_query($conn, $fetch_group_query);
 
     if (mysqli_num_rows($fetch_group_response) > 0) {
