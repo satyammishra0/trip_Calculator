@@ -69,7 +69,7 @@ function authorized_user_only($rediract = true)
 // get user details from sestion 
 function _id()
 {
-    return $_SESSION['id'];
+    return $_SESSION['userid'];
 }
 function _name()
 {

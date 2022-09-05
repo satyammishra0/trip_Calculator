@@ -343,7 +343,7 @@ if (!empty($group_user_name)) {
                                 <a href="javascript:open_drawer(2,1)" class="drawer-btn">You Give ₹ <?= $GIVE_AMOUNT ?></a>
                             </li>
                             <li>
-                                <a href="javascript:open_drawer(3,2)" class="drawer-btn">You Got ₹ <?= $TAKE_AMOUNT ?></a>
+                                <a href="javascript:open_drawer(3,2)" class="drawer-btn">You will Get ₹ <?= $TAKE_AMOUNT ?></a>
                             </li>
                         </ul>
                     </div>
