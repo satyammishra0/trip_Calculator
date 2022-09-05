@@ -33,7 +33,7 @@ if (isset($_POST['login-email']) && isset($_POST['login-password'])) {
             if ($user['status'] == 1) {
                 if (password_verify($pass, $user['password'])) {
 
-                    $_SESSION['userid'] = $user['id'];
+                    $_SESSION['id'] = $user['id'];
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['useremail'] = $user['useremail'];
 
