@@ -10,6 +10,9 @@ header {
   font-size: 30px;
   font-weight: 600;
 }
+.header-brand-name > a {
+  color: var(--white);
+}
 .user-profile-icon {
   height: 40px;
   width: 40px;

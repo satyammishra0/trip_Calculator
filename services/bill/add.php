@@ -56,15 +56,17 @@ if (mysqli_affected_rows($conn) > 0) {
     $BILL_ID = mysqli_insert_id($conn);
 
     // insert query form member in this group
-    $member_query_1 = "INSERT INTO `bill_members`( `bill_id`, `user_id`, `added_on`) VALUES ";
+    $member_query_1 = "INSERT INTO `bill_members`( `bill_id`, `user_id`,`amount`, `paid`, `pay_date`, `added_on`) VALUES ";
     $member_query_2 = " ";
 
+    $per_member_amount = $AMOUNT / count($MEMBERS);
+    $per_member_amount = round($per_member_amount);
     for ($i = 0; $i < count($MEMBERS); $i++) {
         $member = $MEMBERS[$i];
         if ($i == count($MEMBERS) - 1) {
-            $member_query_2 .= "('$BILL_ID','$member','$TIME')";
+            $member_query_2 .= "('$BILL_ID','$member','$per_member_amount','0','0','$TIME')";
         } else {
-            $member_query_2 .= "('$BILL_ID','$member','$TIME'),";
+            $member_query_2 .= "('$BILL_ID','$member','$per_member_amount','0','0','$TIME'),";
         }
     }
 

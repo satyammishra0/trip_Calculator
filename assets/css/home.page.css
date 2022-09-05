@@ -10,6 +10,7 @@
   overflow: hidden;
   display: grid;
   grid-template-columns: var(--left-menu-width) 1fr;
+  grid-template-rows: calc(100vh - var(--header-height));
 }
 
 .menu-container {
@@ -52,30 +53,15 @@
 }
 
 .group-list-contaner {
-  flex: 1 0 auto;
   width: 100%;
-  overflow-y: scroll;
+  flex: 1 1 auto;
+  margin-bottom: 5px;
+  overflow: hidden;
 }
-
-.group-list-contaner::-webkit-scrollbar {
-  width: 5px;
+.scroll-y {
+  overflow-y: auto;
+  height: 100%;
 }
-/* Track */
-
-.group-list-contaner::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-/* Handle */
-
-.group-list-contaner::-webkit-scrollbar-thumb {
-  background: #888;
-}
-/* Handle on hover */
-
-.group-list-contaner::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
 .group-list {
   width: 100%;
   padding: 10px 1vw;
@@ -319,4 +305,71 @@
   color: var(--white);
   cursor: pointer;
   font-size: 30px;
+}
+
+/* Payment History */
+.payment_history_head {
+  padding: 20px;
+  padding-bottom: 0;
+}
+.payment_history_head > span {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.payment_history_links {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #000;
+}
+
+.payment_history_links > li > a {
+  display: block;
+  padding: 7px 15px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 13px;
+}
+.payment_history_links > li > a.active {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+.payment_history_container {
+  height: 250px;
+  padding: 0 20px;
+  padding-top: 10px;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
+
+.payment_history_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 3px solid gray;
+  padding: 8px;
+  margin-bottom: 3px;
+}
+
+.payment_history_item.green {
+  border-left-color: green;
+}
+.payment_history_item.red {
+  border-left-color: red;
+}
+
+.payment_history_item > .payment {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.payment_history_item.green > .payment {
+  color: green;
+}
+.payment_history_item.red > .payment {
+  color: red;
 }
