@@ -7,7 +7,7 @@
     <nav>
         <ul class="header-menu-list">
             <li><a href="<?= url("group/create") ?>">Create group</a></li>
-            <li><a href="#">Join Group</a></li>
+            <li><a href="<?= url("group/join") ?>">Join Group</a></li>
             <li>
                 <div class="user-profile-icon">
                     <p>

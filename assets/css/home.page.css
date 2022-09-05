@@ -10,6 +10,7 @@
   overflow: hidden;
   display: grid;
   grid-template-columns: var(--left-menu-width) 1fr;
+  grid-template-rows: calc(100vh - var(--header-height));
 }
 
 .menu-container {
@@ -52,30 +53,15 @@
 }
 
 .group-list-contaner {
-  flex: 1 0 auto;
   width: 100%;
-  overflow-y: scroll;
+  flex: 1 1 auto;
+  margin-bottom: 5px;
+  overflow: hidden;
 }
-
-.group-list-contaner::-webkit-scrollbar {
-  width: 5px;
+.scroll-y {
+  overflow-y: auto;
+  height: 100%;
 }
-/* Track */
-
-.group-list-contaner::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-/* Handle */
-
-.group-list-contaner::-webkit-scrollbar-thumb {
-  background: #888;
-}
-/* Handle on hover */
-
-.group-list-contaner::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
 .group-list {
   width: 100%;
   padding: 10px 1vw;
