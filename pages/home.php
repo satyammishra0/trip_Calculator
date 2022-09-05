@@ -2,10 +2,7 @@
 include('../app.php');
 
 authorized_user_only();
-
-
 $GROUP = null;
-
 $group_user_name = isset($_GET['group']) && $_GET['group'] != null ? $_GET['group'] : "";
 
 if (!empty($group_user_name)) {
@@ -18,9 +15,6 @@ if (!empty($group_user_name)) {
         $GROUP = mysqli_fetch_assoc($fetch_group_response);
     }
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -109,10 +103,7 @@ if (!empty($group_user_name)) {
         </div>
 
 
-
-
         <!-- main Group Selection -->
-
         <div class="group-area">
             <div class="group-bill-container" id="bill-container">
                 <div class="bill-list">

@@ -2,7 +2,8 @@
 
 
 // APP configractions
-define('APP_URL', "http://localhost/root/abhaymishra/trip/");
+// define('APP_URL', "http://localhost/root/abhaymishra/trip/");
+define('APP_URL', "http://localhost/GROWUPNEXT/Trip_Calculator/");
 define('APP_NAME', "Trip Calc");
 define('APP_MODE', "TEST"); // for production use PRO
 define("APP_VERSION", "v0.1.0");
