@@ -118,6 +118,7 @@ if (!empty($group_user_name)) {
                 <div class="bill-list">
                     <?php
                     $q = "SELECT user_bills.*, user_details.username as username FROM `user_bills` LEFT JOIN user_details ON user_details.id = user_bills.created_by  WHERE `group_id` = " . $GROUP['id'] . " ORDER BY `group_id` DESC";
+
                     $BILLS = fetch_all_data($q);
 
                     if ($BILLS) :
@@ -180,8 +181,9 @@ if (!empty($group_user_name)) {
                         </div>
                         <h3><?= $GROUP['group_title'] ?></h3>
                         <p style="margin-bottom:2% ;">Created by : <?= $GROUP['admin'] ?></p>
-                        <div class="group-info-btn grid-center">
+                        <div class="group-info-btn ">
                             <button class="basic-button"><a class="anchor" href="javascript:add_new_bill()">Add bill</a></button>
+                            <button class="basic-button"><a class="anchor" href="javascript:open_bill_history()">History</a></button>
                         </div>
                     </center>
                     <hr class="mtb-2">
@@ -203,7 +205,9 @@ if (!empty($group_user_name)) {
                     </ul>
                 </div>
 
-            <?php endif; ?>
+            <?php
+            endif;
+            ?>
         </div>
 
 
@@ -286,10 +290,129 @@ if (!empty($group_user_name)) {
         </div>
     </dialog>
 
+    <dialog id="group_payment_history">
+
+
+
+
+        <?php
+
+        $group_id = $GROUP['id'];
+        $user_id = _id();
+
+        $GIVE_MEMBER = [];
+        $TAKE_MEMBER = [];
+        $GIVE_AMOUNT = 0;
+        $TAKE_AMOUNT = 0;
+
+        foreach ($GROUP_MEMBERS as $m) {
+            $GIVE_MEMBER[$m['userid']] = 0;
+        }
+
+        $TAKE_MEMBER = $GIVE_MEMBER;
+
+        $TRANSACTIONS = fetch_all_data("SELECT bill_members.*, user_bills.created_by as payby FROM `bill_members` LEFT JOIN user_bills ON user_bills.id = bill_members.bill_id WHERE user_bills.group_id =  '$group_id'");
+
+
+        if ($TRANSACTIONS) {
+
+            foreach ($TRANSACTIONS as $item) {
+                if ($item['payby'] == _id()) {
+                    $TAKE_MEMBER[$item['user_id']] = $TAKE_MEMBER[$item['user_id']] + $item['amount'];
+                } else {
+                    if ($item['user_id'] == _id()) {
+                        $GIVE_MEMBER[$item['payby']] = $GIVE_MEMBER[$item['payby']] + $item['amount'];
+                    }
+                }
+            }
+        }
+
+        foreach ($GROUP_MEMBERS as $item) {
+
+            if ($item['userid'] == _id()) continue;
+            if ($GIVE_MEMBER[$item['userid']] > $TAKE_MEMBER[$item['userid']]) {
+                $GIVE_AMOUNT = $GIVE_AMOUNT + $GIVE_MEMBER[$item['userid']] - $TAKE_MEMBER[$item['userid']];
+            }
+            if ($GIVE_MEMBER[$item['userid']] < $TAKE_MEMBER[$item['userid']]) {
+                $TAKE_AMOUNT = $TAKE_AMOUNT + $TAKE_MEMBER[$item['userid']] - $GIVE_MEMBER[$item['userid']];
+            }
+        }
+
+        ?>
+        <ion-icon onclick="close_bill_history()" style="color:var(--primary-color);" name="close-sharp" class="dialog-close-btn"></ion-icon>
+
+        <div class="payment_history_head">
+            <span>Payment History</span>
+
+            <ul class="payment_history_links">
+                <li>
+                    <a href="javascript:open_drawer(1,0)" class="drawer-btn active">History</a>
+                </li>
+                <li>
+                    <a href="javascript:open_drawer(2,1)" class="drawer-btn">You Give ₹ <?= $GIVE_AMOUNT ?></a>
+                </li>
+                <li>
+                    <a href="javascript:open_drawer(3,2)" class="drawer-btn">You Got ₹ <?= $TAKE_AMOUNT ?></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="payment_history_container">
+
+            <div class="payment_history_list" id="payment_history_0">
+                <?php
+
+                foreach ($GROUP_MEMBERS as $item) :
+
+                    if ($item['userid'] == _id()) continue;
+
+
+                    $css_class = "";
+                    $amount = 0;
+                    if ($GIVE_MEMBER[$item['userid']] > $TAKE_MEMBER[$item['userid']]) {
+                        $css_class = "red";
+                        $amount = $GIVE_MEMBER[$item['userid']] - $TAKE_MEMBER[$item['userid']];
+                    }
+                    if ($GIVE_MEMBER[$item['userid']] < $TAKE_MEMBER[$item['userid']]) {
+                        $css_class = "green";
+                        $amount = $TAKE_MEMBER[$item['userid']] - $GIVE_MEMBER[$item['userid']];
+                    }
+
+                    if ($amount == 0) continue;
+
+                ?>
+                    <div class="payment_history_item <?= $css_class ?>">
+                        <div class="flex" style="gap:10px">
+                            <div class="group-icon">
+                                <p><?= substr($item['username'], 0, 1) ?></p>
+                            </div>
+
+                            <p><?= $item['username'] ?></p>
+                        </div>
+
+                        <p class="payment">₹ <?= $amount ?></p>
+                    </div>
+
+                <?php endforeach; ?>
+            </div>
+
+
+
+
+        </div>
+
+
+    </dialog>
+
+
     <?php get_component('script') ?>
 
     <script type="text/javascript" src="<?= get_assets('js/home.page.js') ?>"></script>
     <script type="text/javascript" src="<?= get_assets('js/home_bill.page.js') ?>"></script>
+
+    <script>
+        open_bill_history();
+    </script>
 </body>
 
 </html>

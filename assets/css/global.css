@@ -40,7 +40,28 @@ dialog {
   transform: translate(-50%, -50%);
   border: none;
   border-radius: 6px;
+  width: min(550px, 95%);
+  /* background-color: rgb(16, 20, 38); */
 }
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.728);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
